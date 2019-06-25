@@ -1,0 +1,29 @@
+<?php
+   $dbhost = "localhost";
+   $dbuser = "";
+   $dbpass = "";
+   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+   
+   if(! $conn ) {
+      die('Could not connect: ' . mysql_error());
+   }
+   $sql = 'SELECT * FROM student';
+
+   mysql_select_db('test');
+   $retval = mysql_query( $sql, $conn );
+   
+   if(! $retval ) {
+      die('Could not get data: ' . mysql_error());
+   }
+   
+   while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+ {
+      echo "name :{$row['name']}  <br> ".
+         "rollno: {$row['rollno']} <br> ".
+         "mark: {$row['mark']} <br> ".
+         "--------------------------------<br>";
+}
+   
+   echo "Fetched data successfully\n";
+   mysql_close($conn);
+?>
