@@ -1,0 +1,13 @@
+<html>
+<body>
+
+<form action="insert.php" method="post">
+Student Name: <input type="text" name="name"><br>
+Student Rollno: <input type="text" name="rollno">
+<br>
+Student Mark:<input type="text" name="mark">
+<input type="submit">
+</form>
+
+</body>
+</html>
