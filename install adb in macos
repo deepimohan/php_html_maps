@@ -1,0 +1,6 @@
+Install ADB  
+ bash <(curl https://raw.githubusercontent.com/corbindavenport/nexus-tools/master/install.sh)
+
+Uninstall ADB  
+ bash <(curl https://raw.githubusercontent.com/corbindavenport/nexus-tools/master/uninstall.sh)
+
