@@ -1,0 +1,31 @@
+package bit.it.mylogin;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    String username="admin";
+    String password="admin123";
+    EditText editextuser, editextpass;
+    Button btn;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+    public void checklogin(View v)
+    {
+       editextuser=(EditText)findViewById(R.id.etuser);
+       editextpass=(EditText)findViewById(R.id.etpass);
+       btn=(Button)findViewById(R.id.btnok);
+        if(editextuser.getText().toString().equalsIgnoreCase(username) && editextpass.getText().toString().equals(password)){
+            Toast.makeText(getApplicationContext(),"valid user",Toast.LENGTH_LONG).show();
+        }else
+            Toast.makeText(getApplicationContext(),"Invalid user",Toast.LENGTH_LONG).show();
+    }
+}
