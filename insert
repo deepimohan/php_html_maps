@@ -1,31 +1,30 @@
 <?php
-
-$host="localhost"; // Host name 
-$username=""; // Mysql username 
-$password=""; // Mysql password 
-$db_name="test"; // Database name 
-$tbl_name="student"; // Table name 
-
-// Connect to server and select database.
-mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("$db_name")or die("cannot select DB");
-
-// Get values from form 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "test";
+$tbl_name="student";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 $a=$_POST['name'];
 $b=$_POST['rollno'];
+
 $c=$_POST['mark'];
+$sql = "INSERT INTO $tbl_name(name, rollno, mark)VALUES('$a', '$b', '$c')";
 
-// Insert data into mysql 
-$sql="INSERT INTO $tbl_name(name, rollno, mark)VALUES('$a', '$b', '$c')";
-$result=mysql_query($sql);
-
-// if successfully insert data into database, displays message "Successful". 
-if($result){
-echo "Successful";
-echo "<BR>";
+if (mysqli_query($conn, $sql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-
-else {
-echo "ERROR";
-}
+mysqli_close($conn);
 ?>
+
+
+
+
+
